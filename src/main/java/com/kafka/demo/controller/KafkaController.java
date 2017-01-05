@@ -2,6 +2,7 @@ package com.kafka.demo.controller;
 
 import javax.annotation.Resource;
 
+import com.kafka.demo.service.Msg;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -38,6 +39,16 @@ public class KafkaController {
 		logger.info("-------KafkaController--------start-----");
 		System.err.println("---------KafkaController--------start---------");
 		kafkaService.sendMesage("test3","测试3");
+		return "index";
+	}
+
+	@RequestMapping("/test4")
+	public String test4(){
+		logger.info("-------KafkaController--------start-----");
+		System.err.println("---------KafkaController--------start---------");
+		Msg msg = new Msg();
+		msg.setMessage("测试四");
+		kafkaService.sendMesage("test4",msg);
 		return "index";
 	}
 }

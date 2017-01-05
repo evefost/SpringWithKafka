@@ -17,10 +17,11 @@
                 <entry key="group.id" value="55555"/>
                 <entry key="enable.auto.commit" value="true"/>  
                 <entry key="auto.commit.interval.ms" value="1000"/>  
-                <entry key="session.timeout.ms" value="15000"/>  
+                <entry key="session.timeout.ms" value="15000"/>
                 <entry key="key.deserializer" value="org.apache.kafka.common.serialization.IntegerDeserializer"/>
-                <entry key="value.deserializer" value="org.apache.kafka.common.serialization.StringDeserializer"/>  
-            </map>  
+                <!--<entry key="value.deserializer" value="org.apache.kafka.common.serialization.StringDeserializer"/>-->
+                <entry key="value.deserializer" value="com.kafka.demo.service.ObjectDeserializer"/>
+            </map>
         </constructor-arg>  
      </bean>  
        
@@ -43,6 +44,7 @@
              <array>
                  <value>test2</value>
                  <value>test3</value>
+                 <value>test4</value>
              </array>
          </constructor-arg>
         <property name="messageListener" ref="messageListernerConsumerService"/>
